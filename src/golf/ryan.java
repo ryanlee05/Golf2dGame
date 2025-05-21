@@ -19,6 +19,12 @@ public class ryan {
 		window.setVisible(true);
 		window.setLocationRelativeTo(null);
 		
+		gamePanel panel = new gamePanel();
+		
+		window.add(panel);
+		
+		window.pack();
+		
 	}
 
 }
