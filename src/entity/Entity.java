@@ -15,5 +15,7 @@ public class Entity {
 	public int spriteCounter = 0;
 	public int spriteNum = 2;
 	
+	public boolean moving = false;
+	
 	
 }

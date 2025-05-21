@@ -57,6 +57,8 @@ public class Player extends Entity{
 			if (y != 0) {
 				y -= speed;
 			}
+			moving = true;
+			
 
 		}
 		if (keyH.downPressed) {
@@ -64,6 +66,8 @@ public class Player extends Entity{
 			if (y <= 640) {
 				y += speed;
 			}
+			moving = true;
+			
 
 		}
 		if (keyH.leftPressed) {
@@ -71,6 +75,7 @@ public class Player extends Entity{
 			if (x != 0) {
 				x -= speed;
 			}
+			moving = true;
 
 		}
 		if (keyH.rightPressed) {
@@ -79,10 +84,14 @@ public class Player extends Entity{
 			if (x <= 768) {
 				x += speed;
 			}
-			
+			moving = true;
 		}
 		
-		spriteCounter++;
+		if(moving) {
+			spriteCounter++;
+		}
+		
+		moving = false;
 		
 		if(spriteCounter > 10) {
 			if(spriteNum == 1) {
