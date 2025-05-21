@@ -1,5 +1,7 @@
 package golf;
 
+import javax.swing.JFrame;
+
 public class ryan {
 
 	/**
@@ -7,7 +9,12 @@ public class ryan {
 	 * 
 	 * @param args
 	 */
-	public void main(String args[]) {
+	public static void main(String args[]) {
+		
+		//establish a new window
+		JFrame window = new JFrame();
+		
+		
 		
 	}
 
