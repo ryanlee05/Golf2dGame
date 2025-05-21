@@ -3,7 +3,7 @@ package golf;
 import javax.swing.JFrame;
 
 
-public class ryan {
+public class Golf {
 
 	/**
 	 * main class for golf. creates the simulation, etc.
