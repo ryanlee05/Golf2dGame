@@ -94,7 +94,7 @@ public class Player extends Entity {
 
 		moving = false;
 
-		if (spriteCounter > 10) {
+		if (spriteCounter > 11) {
 			if (spriteNum == 1) {
 				spriteNum = 2;
 			} else {

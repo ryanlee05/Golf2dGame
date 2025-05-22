@@ -36,10 +36,7 @@ public class gamePanel extends JPanel implements Runnable {
 	
 	TileManager tileM = new TileManager(this);
 
-	// set players default position
-	int playerX = 100;
-	int playerY = 100;
-	int playerSpeed = 5;
+
 
 	public gamePanel() {
 		this.setPreferredSize(new Dimension(screenWidth, screenHeight));

@@ -25,7 +25,7 @@ public class TileManager {
 
 		getTileImage();
 		
-		loadMap();
+		loadMap("/maps/map.txt");
 	}
 
 	public void getTileImage() {
@@ -41,11 +41,11 @@ public class TileManager {
 		}
 	}
 
-	public void loadMap() {
+	public void loadMap(String filepath) {
 
 		try {
 
-			InputStream is = getClass().getResourceAsStream("/maps/map.txt");
+			InputStream is = getClass().getResourceAsStream(filepath);
 			BufferedReader br = new BufferedReader(new InputStreamReader(is));
 
 			int col = 0;
