@@ -49,7 +49,7 @@ public class Player extends Entity {
 
 		if ((keyH.upPressed && keyH.leftPressed) || (keyH.upPressed && keyH.rightPressed)
 				|| (keyH.downPressed && keyH.leftPressed) || (keyH.downPressed && keyH.rightPressed)) {
-			speed = 3.5355;
+			speed = Math.sqrt(Math.pow(5, 2) / 2);
 		} else {
 			speed = 5;
 		}
