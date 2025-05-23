@@ -34,14 +34,14 @@ public class Player extends Entity {
 
 	public void getPlayerImage() {
 		try {
-			down1 = ImageIO.read(getClass().getResourceAsStream("/player/pixil-frame-0.png"));
-			down2 = ImageIO.read(getClass().getResourceAsStream("/player/pixil-frame-1.png"));
-			left1 = ImageIO.read(getClass().getResourceAsStream("/player/pixil-frame-2.png"));
-			left2 = ImageIO.read(getClass().getResourceAsStream("/player/pixil-frame-3.png"));
-			right1 = ImageIO.read(getClass().getResourceAsStream("/player/pixil-frame-4.png"));
-			right2 = ImageIO.read(getClass().getResourceAsStream("/player/pixil-frame-5.png"));
-			up1 = ImageIO.read(getClass().getResourceAsStream("/player/pixil-frame-6.png"));
-			up2 = ImageIO.read(getClass().getResourceAsStream("/player/pixil-frame-7.png"));
+			down1 = ImageIO.read(getClass().getResourceAsStream("/player/sage_player1.png.png"));
+			down2 = ImageIO.read(getClass().getResourceAsStream("/player/sage_player2.png.png"));
+			left1 = ImageIO.read(getClass().getResourceAsStream("/player/sage_player7.png.png"));
+			left2 = ImageIO.read(getClass().getResourceAsStream("/player/sage_player8.png.png"));
+			right1 = ImageIO.read(getClass().getResourceAsStream("/player/sage_player5.png.png"));
+			right2 = ImageIO.read(getClass().getResourceAsStream("/player/sage_player6.png.png"));
+			up1 = ImageIO.read(getClass().getResourceAsStream("/player/sage_player3.png.png"));
+			up2 = ImageIO.read(getClass().getResourceAsStream("/player/sage_player4.png.png"));
 
 		} catch (IOException e) {
 			e.printStackTrace();
