@@ -19,7 +19,7 @@ public class TileManager {
     public TileManager(gamePanel gp) {
         this.gp = gp;
 
-        tile = new Tile[6];
+        tile = new Tile[7];
 
         mapTileNum = new int[gp.maxWorldCol][gp.maxWorldRow];
 
@@ -51,6 +51,8 @@ public class TileManager {
             tile[5] = new Tile();
             tile[5].image = ImageIO.read(getClass().getResourceAsStream(
                 "/tiles/Fringe.png"));
+            tile[6] = new Tile();
+            tile[6].image = ImageIO.read(getClass().getResourceAsStream("/tiles/Wall.png"));
         }
         catch (IOException e) {
             e.printStackTrace();
