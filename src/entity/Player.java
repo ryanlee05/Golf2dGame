@@ -13,18 +13,21 @@ import golf.gamePanel;
 public class Player extends Entity {
 	gamePanel gp;
 	KeyHandler keyH;
+	public final int screenX;
+	public final int screenY;
 
 	public Player(gamePanel gp, KeyHandler keyH) {
 		this.gp = gp;
 		this.keyH = keyH;
-
+		screenX = gp.screenWidth/2 - (gp.tileSize/2);
+		screenY = gp.screenHeight/2 - (gp.tileSize/2);
 		setDefaultValues();
 		getPlayerImage();
 	}
 
 	public void setDefaultValues() {
-		x = 100;
-		y = 100;
+		worldX = gp.tileSize * 14;
+		worldY = gp.tileSize * 37;
 		speed = 5;
 		direction = "down";
 	}
@@ -56,35 +59,24 @@ public class Player extends Entity {
 
 		if (keyH.upPressed) {
 			direction = "up";
-
-			if (y >= 0) {
-				y -= speed;
-			}
+			worldY -= speed;
 			moving = true;
-
 		}
 		if (keyH.downPressed) {
 			direction = "down";
-			if (y <= 704) {
-				y += speed;
-			}
+			worldY += speed;
 			moving = true;
 
 		}
 		if (keyH.leftPressed) {
 			direction = "left";
-			if (x >= 0) {
-				x -= speed;
-			}
+			worldX -= speed;
 			moving = true;
 
 		}
 		if (keyH.rightPressed) {
 			direction = "right";
-
-			if (x <= 832) {
-				x += speed;
-			}
+			worldX += speed;
 			moving = true;
 		}
 
@@ -94,7 +86,7 @@ public class Player extends Entity {
 
 		moving = false;
 
-		if (spriteCounter > 10) {
+		if (spriteCounter > 11) {
 			if (spriteNum == 1) {
 				spriteNum = 2;
 			} else {
@@ -144,7 +136,7 @@ public class Player extends Entity {
 			break;
 		}
 
-		g2.drawImage(image, x, y, gp.tileSize, gp.tileSize, null);
+		g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null);
 	}
 
 }
