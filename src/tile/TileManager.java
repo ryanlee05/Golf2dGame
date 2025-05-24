@@ -12,9 +12,9 @@ import golf.gamePanel;
 
 public class TileManager {
     gamePanel gp;
-    Tile[] tile;
+    public Tile[] tile;
 
-    int mapTileNum[][];
+    public int mapTileNum[][];
 
     public TileManager(gamePanel gp) {
         this.gp = gp;
@@ -42,6 +42,7 @@ public class TileManager {
             tile[2] = new Tile();
             tile[2].image = ImageIO.read(getClass().getResourceAsStream(
                 "/tiles/Water.png"));
+            
             tile[2].collision = true;
             tile[3] = new Tile();
             tile[3].image = ImageIO.read(getClass().getResourceAsStream(
