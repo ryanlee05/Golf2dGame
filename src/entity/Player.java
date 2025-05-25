@@ -18,6 +18,7 @@ public class Player extends Entity {
 	public final int screenY;
 
 	public Player(gamePanel gp, KeyHandler keyH) {
+		
 		this.gp = gp;
 		this.keyH = keyH;
 		screenX = gp.screenWidth / 2 - (gp.tileSize / 2);
@@ -92,6 +93,7 @@ public class Player extends Entity {
 			}
 
 		} else {
+			gp.playSoundEffect(0);
 			if (collisionDirection.equals("up")) {
 				worldY += speed;
 				if (keyH.downPressed) {
