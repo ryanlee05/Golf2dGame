@@ -18,6 +18,10 @@ public class Sound {
 		soundURL[1] = getClass().getResource("/music/BeachVibes.wav");
 		
 		soundURL[2] = getClass().getResource("/music/golf_hit.wav");
+		
+		soundURL[3] = getClass().getResource("/music/ClubSwapRight.wav");
+		
+		soundURL[4] = getClass().getResource("/music/ClubSwapLeft.wav");
 	}
 
 	public void setFile(int i) {

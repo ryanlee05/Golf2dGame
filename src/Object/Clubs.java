@@ -45,10 +45,12 @@ public Clubs(gamePanel gp, KeyHandler keyH) {
 
 public void update() {
     if (keyH.qPressed && !qPressedLastFrame) {
+    	gp.playSoundEffect(4);
         currentIndex = (currentIndex - 1 + clubImages.length) % clubImages.length;
     }
 
     if (keyH.ePressed && !ePressedLastFrame) {
+    	gp.playSoundEffect(3);
         currentIndex = (currentIndex + 1) % clubImages.length;
     }
 
