@@ -61,16 +61,6 @@ public class Player extends Entity {
 
 	public void update() {
 
-		if ((keyH.upPressed && keyH.leftPressed) || (keyH.upPressed && keyH.rightPressed)
-				|| (keyH.downPressed && keyH.leftPressed) || (keyH.downPressed && keyH.rightPressed)) {
-			speed = (int) Math.sqrt(Math.pow(5, 2) / 2) + 1;
-		} else {
-			speed = 5;
-		}
-		
-		
-		
-
 		// CHECK TILE COLLISION
 		collisionOn = false;
 		gp.collisionCheck.checkTile(this);

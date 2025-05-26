@@ -67,12 +67,12 @@ public void draw(Graphics2D g2) {
     int nextIndex = (currentIndex + 1) % clubImages.length;
 
    
-    g2.drawImage(clubImages[prevIndex], x - size/2 - 10, y + gp.tileSize/4, smallSize, smallSize, null);
+    g2.drawImage(clubImages[prevIndex], x - size/2 - 10, y + gp.tileSize/4 - 50, smallSize + 50, smallSize + 50, null);
 
   
-    g2.drawImage(hImages[currentIndex], x, y, size, size, null);
+    g2.drawImage(hImages[currentIndex], x + 50, y - 50, size + 50, size + 50, null);
 
   
-    g2.drawImage(clubImages[nextIndex], x + size, y + gp.tileSize/4, smallSize, smallSize, null);
+    g2.drawImage(clubImages[nextIndex], x + size + 100, y + gp.tileSize/4 - 50, smallSize + 50, smallSize + 50, null);
 }
 }
