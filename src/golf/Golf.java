@@ -35,6 +35,7 @@ public class Golf {
 		window.setLocationRelativeTo(null);
 		window.setVisible(true);
 
+		
 		// start a game thread
 		panel.startGameThread();
 		

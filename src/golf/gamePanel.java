@@ -7,6 +7,7 @@ import java.awt.Graphics2D;
 
 import javax.swing.JPanel;
 
+import Object.GolfBall;
 import entity.Player;
 import tile.TileManager;
 
@@ -38,7 +39,11 @@ public class gamePanel extends JPanel implements Runnable {
 		
 	public Player player = new Player(this, keyH);
 	
+	public GolfBall golfBall = new GolfBall(this);
+	
 	Sound sound = new Sound();
+	
+
 	
 	TileManager tileM = new TileManager(this);
 	
@@ -60,10 +65,11 @@ public class gamePanel extends JPanel implements Runnable {
 	public void startGameThread() {
 		gameThread = new Thread(this);
 		gameThread.start();
-		
-		this.playMusic(1);
 
+		sound.setFile(1);
+		sound.play();
 	}
+	
 
 	@Override
 	public void run() {
@@ -116,8 +122,11 @@ public class gamePanel extends JPanel implements Runnable {
 		Graphics2D g2 = (Graphics2D) g;
 		
 		tileM.draw(g2);
+		
+		golfBall.draw(g2);
 
 		player.draw(g2);
+		
 
 		g2.dispose();
 		

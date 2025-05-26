@@ -9,39 +9,36 @@ import javax.sound.sampled.Clip;
 public class Sound {
 	Clip clip;
 	URL soundURL[] = new URL[5];
-	
+
 	public Sound() {
-		//collision sound!
+		// collision sound!
 		soundURL[0] = getClass().getResource("/music/Collision.wav");
+
+		// songtrack
 		soundURL[1] = getClass().getResource("/music/BeachVibes.wav");
 	}
-	
-	public void setFile(int i ) {
+
+	public void setFile(int i) {
 		try {
 			AudioInputStream ais = AudioSystem.getAudioInputStream(soundURL[i]);
 			clip = AudioSystem.getClip();
 			clip.open(ais);
+		} catch (Exception e) {
+
 		}
-		catch (Exception e) {
-			
-		}
-		
+
 	}
-	
+
 	public void play() {
 		clip.start();
 	}
-	
+
 	public void loop() {
 		clip.loop(Clip.LOOP_CONTINUOUSLY);
 	}
-	
-	
+
 	public void stop() {
 		clip.stop();
 	}
-	
-	
-	
-	
+
 }

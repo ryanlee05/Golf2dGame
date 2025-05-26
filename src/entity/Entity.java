@@ -23,6 +23,4 @@ public class Entity {
 	public boolean collisionOn = false;
 	
 	public String collisionDirection = "none";
-	
-	
 }
