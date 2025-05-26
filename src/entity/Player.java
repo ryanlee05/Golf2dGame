@@ -16,6 +16,7 @@ public class Player extends Entity {
 	KeyHandler keyH;
 	public final int screenX;
 	public final int screenY;
+	
 
 	public Player(gamePanel gp, KeyHandler keyH) {
 		
@@ -29,6 +30,7 @@ public class Player extends Entity {
 		solidArea.y = 30;
 		solidArea.width = 34;
 		solidArea.height = 24;
+		
 
 		setDefaultValues();
 		getPlayerImage();

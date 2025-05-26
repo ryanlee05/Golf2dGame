@@ -39,7 +39,7 @@ public class gamePanel extends JPanel implements Runnable {
 		
 	public Player player = new Player(this, keyH);
 	
-	public GolfBall golfBall = new GolfBall(this);
+	public GolfBall golfBall = new GolfBall(this, keyH);
 	
 	Sound sound = new Sound();
 	
@@ -113,6 +113,13 @@ public class gamePanel extends JPanel implements Runnable {
 
 	public void update() {
 		player.update();
+		
+		
+		
+		golfBall.update();
+		
+		
+		
 	}
 
 	public void paintComponent(Graphics g) {
@@ -124,8 +131,9 @@ public class gamePanel extends JPanel implements Runnable {
 		tileM.draw(g2);
 		
 		golfBall.draw(g2);
-
+		
 		player.draw(g2);
+		
 		
 
 		g2.dispose();
