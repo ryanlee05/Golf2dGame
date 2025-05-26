@@ -67,10 +67,19 @@ public class Player extends Entity {
 		} else {
 			speed = 5;
 		}
+		
+		
+		
 
 		// CHECK TILE COLLISION
 		collisionOn = false;
 		gp.collisionCheck.checkTile(this);
+		
+		//checks to see if the player is at the ball
+		if(gp.collisionCheck.checkBall(this)) {
+			
+			gp.golfBall.playerReady = true;
+		}
 
 		if (collisionOn == false) {
 			if (keyH.upPressed) {
@@ -169,6 +178,8 @@ public class Player extends Entity {
 			}
 
 		}
+	
+		
 
 		if (moving) {
 			spriteCounter++;

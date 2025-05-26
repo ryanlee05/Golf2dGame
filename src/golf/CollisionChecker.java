@@ -1,5 +1,7 @@
 package golf;
 
+import java.awt.Rectangle;
+
 import entity.Entity;
 
 public class CollisionChecker {
@@ -69,4 +71,22 @@ public class CollisionChecker {
 		}
 
 	}
+	
+	
+	public boolean checkBall(Entity entity) {
+		boolean atBall = false;
+		
+		int solidAreaX = entity.worldX + entity.solidArea.x;
+		int solidAreaY = entity.worldY + entity.solidArea.y;
+		
+		Rectangle rect = new Rectangle(solidAreaX, solidAreaY, 32, 32);
+		
+		if(rect.intersects(gp.golfBall.solidArea)) {
+			return true;
+		}
+		
+		return atBall;
+	}
+	
+	
 }

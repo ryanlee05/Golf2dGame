@@ -1,6 +1,7 @@
 package Object;
 
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
 import javax.imageio.ImageIO;
@@ -9,16 +10,27 @@ import golf.KeyHandler;
 import golf.gamePanel;
 
 public class GolfBall {
+	gamePanel gp;
+	
+	KeyHandler keyH;
+	
 	public BufferedImage image;
+	
+	public Rectangle solidArea;
+	
+	public boolean collision;
+	
 	public int worldX, worldY;
 	
 	public double velocityX, velocityY;
 	
+	public boolean playerReady;
+	
 	public double friction;
-	gamePanel gp;
-	KeyHandler keyH;
-
+	
 	public int hitCount;
+	
+	
 
 	public GolfBall(gamePanel gp, KeyHandler keyH) {
 		try {
@@ -33,26 +45,37 @@ public class GolfBall {
 		this.worldX = 20 * gp.tileSize;
 		this.worldY = 42 * gp.tileSize;
 		
-		this.velocityX = 5;
+		this.solidArea = new Rectangle(this.worldX, this.worldY, 64, 64);
+		
+		this.velocityY= 15;
 		this.friction = 0.95;
 
 		this.hitCount = 0;
+		
+		this.collision = true;
 
 	}
 
 	public void update() {
-
 		
-		if(keyH.hitPressed) {
-			if(hitCount < 100) {
-				worldY -= velocityX;
-				velocityX *= friction;
-				hitCount++;
+		
+		
+		if(keyH.hitPressed && playerReady) {
+			if(velocityY >= 0.5) {
+				worldY -= velocityY;
+				velocityY *= friction;
+
 			}
 			else {
 				keyH.hitPressed = false;
+				velocityY = 15;
+				playerReady = false;
+				solidArea = new Rectangle(this.worldX, this.worldY, 64, 64);
 			}
 			
+		}
+		else {
+			keyH.hitPressed = false;
 		}
 		
 
