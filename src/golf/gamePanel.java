@@ -8,6 +8,7 @@ import java.awt.Graphics2D;
 import javax.swing.JPanel;
 
 import Object.GolfBall;
+import Object.Clubs;
 import entity.Player;
 import tile.TileManager;
 
@@ -40,6 +41,7 @@ public class gamePanel extends JPanel implements Runnable {
 	public Player player = new Player(this, keyH);
 	
 	public GolfBall golfBall = new GolfBall(this, keyH);
+	public Clubs club = new Clubs(this, keyH);
 	
 	Sound sound = new Sound();
 	
@@ -134,7 +136,7 @@ public class gamePanel extends JPanel implements Runnable {
 		
 		player.draw(g2);
 		
-		
+		club.draw(g2);
 
 		g2.dispose();
 		
