@@ -64,7 +64,13 @@ public class KeyHandler implements KeyListener{
 		if(code == KeyEvent.VK_D) {
 			rightPressed = false;
 		}
-		
+		if(code == KeyEvent.VK_Q) {
+		    qPressed = false;
+		    
+		}
+		if(code == KeyEvent.VK_E) {
+		    ePressed = false;
+		}
 	}
 
 }

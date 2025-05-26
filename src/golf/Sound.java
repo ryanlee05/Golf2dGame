@@ -16,6 +16,8 @@ public class Sound {
 
 		// songtrack
 		soundURL[1] = getClass().getResource("/music/BeachVibes.wav");
+		
+		soundURL[2] = getClass().getResource("/music/golf_hit.wav");
 	}
 
 	public void setFile(int i) {

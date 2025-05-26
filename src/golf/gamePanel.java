@@ -120,7 +120,7 @@ public class gamePanel extends JPanel implements Runnable {
 		
 		golfBall.update();
 		
-		
+		club.update();
 		
 	}
 

@@ -30,6 +30,8 @@ public class GolfBall {
 	
 	public int hitCount;
 	
+	public boolean hitInProgress;
+	
 	
 
 	public GolfBall(gamePanel gp, KeyHandler keyH) {
@@ -61,9 +63,15 @@ public class GolfBall {
 		
 		
 		if(keyH.hitPressed && playerReady) {
+		   if(!hitInProgress) {
+		       gp.playSoundEffect(2);
+		       hitInProgress = true;
+		   }
+		
 			if(velocityY >= 0.5) {
 				worldY -= velocityY;
 				velocityY *= friction;
+				
 
 			}
 			else {
@@ -73,13 +81,14 @@ public class GolfBall {
 				solidArea = new Rectangle(this.worldX, this.worldY, 64, 64);
 			}
 			
-		}
+	}
 		else {
 			keyH.hitPressed = false;
+			hitInProgress = false;
 		}
 		
-
 	}
+	
 
 	public void draw(Graphics2D g2) {
 		int screenX = worldX - gp.player.worldX + gp.player.screenX;
