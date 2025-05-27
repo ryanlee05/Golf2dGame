@@ -102,18 +102,19 @@ public class Player extends Entity {
 
         // checks to see if the player is at the ball
         
-        gp.golfBall.playerReady = false;
         
         if (gp.collisionCheck.checkBall(this)) {
 
             gp.golfBall.playerReady = true;
+            
             gp.golfBall.swingState = 1;
+            
+            worldX = gp.golfBall.worldX - 35;
+            worldY = gp.golfBall.worldY - 30;
         }
         
        if(!gp.golfBall.playerReady) {
-    	   
-    	   
-    	   
+
     	   
     	   if (collisionOn == false) {
                if (keyH.upPressed) {
