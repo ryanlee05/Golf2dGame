@@ -34,7 +34,9 @@ public class KeyHandler implements KeyListener{
 		}
 		
 		if(code == KeyEvent.VK_H) {
+		    
 			hitPressed = true;
+			
 		}
 		
 		if(code == KeyEvent.VK_Q) {

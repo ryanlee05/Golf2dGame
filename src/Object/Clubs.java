@@ -11,8 +11,9 @@ public class Clubs {
 	KeyHandler keyH;
 	BufferedImage[] clubImages = new BufferedImage[4];
 	BufferedImage[] hImages = new BufferedImage[4];
+	public String[] clubNames = {"Driver", "Iron", "Wedge", "Putter"};
 
-	int currentIndex = 0;
+	public int currentIndex = 0;
 	int x, y;
 	boolean qPressedLastFrame = false;
 	boolean ePressedLastFrame = false;
@@ -54,7 +55,7 @@ public class Clubs {
 		}
 
 	}
-
+	
 	public void draw(Graphics2D g2) {
 		int size = gp.tileSize;
 		int smallSize = size / 2 + 10;
