@@ -101,116 +101,127 @@ public class Player extends Entity {
         gp.collisionCheck.checkTile(this);
 
         // checks to see if the player is at the ball
+        
+        gp.golfBall.playerReady = false;
+        
         if (gp.collisionCheck.checkBall(this)) {
 
             gp.golfBall.playerReady = true;
             gp.golfBall.swingState = 1;
         }
+        
+       if(!gp.golfBall.playerReady) {
+    	   
+    	   
+    	   
+    	   
+    	   if (collisionOn == false) {
+               if (keyH.upPressed) {
+                   direction = "up";
+                   worldY -= speed;
+                   moving = true;
 
-        if (collisionOn == false) {
-            if (keyH.upPressed) {
-                direction = "up";
-                worldY -= speed;
-                moving = true;
+               }
+               else if (keyH.downPressed) {
+                   direction = "down";
+                   worldY += speed;
+                   moving = true;
 
-            }
-            else if (keyH.downPressed) {
-                direction = "down";
-                worldY += speed;
-                moving = true;
+               }
+               else if (keyH.leftPressed) {
+                   direction = "left";
+                   worldX -= speed;
+                   moving = true;
 
-            }
-            else if (keyH.leftPressed) {
-                direction = "left";
-                worldX -= speed;
-                moving = true;
+               }
+               else if (keyH.rightPressed) {
+                   direction = "right";
+                   worldX += speed;
+                   moving = true;
+               }
 
-            }
-            else if (keyH.rightPressed) {
-                direction = "right";
-                worldX += speed;
-                moving = true;
-            }
+           }
+           else {
+               gp.playSoundEffect(0);
+               if (collisionDirection.equals("up")) {
+                   worldY += speed;
+                   if (keyH.downPressed) {
+                       direction = "down";
+                       worldY += speed;
+                       moving = true;
 
-        }
-        else {
-            gp.playSoundEffect(0);
-            if (collisionDirection.equals("up")) {
-                worldY += speed;
-                if (keyH.downPressed) {
-                    direction = "down";
-                    worldY += speed;
-                    moving = true;
+                   }
+                   if (keyH.leftPressed) {
+                       direction = "left";
+                       worldX -= speed;
+                       moving = true;
+                   }
+                   if (keyH.rightPressed) {
+                       direction = "right";
+                       worldX += speed;
+                       moving = true;
+                   }
+               }
+               else if (collisionDirection.equals("down")) {
+                   worldY -= speed;
+                   if (keyH.upPressed) {
+                       direction = "up";
+                       worldY -= speed;
+                       moving = true;
+                   }
+                   if (keyH.leftPressed) {
+                       direction = "left";
+                       worldX -= speed;
+                       moving = true;
+                   }
+                   if (keyH.rightPressed) {
+                       direction = "right";
+                       worldX += speed;
+                       moving = true;
+                   }
+               }
+               else if (collisionDirection.equals("left")) {
+                   worldX += speed;
+                   if (keyH.upPressed) {
+                       direction = "up";
+                       worldY -= speed;
+                       moving = true;
+                   }
+                   if (keyH.downPressed) {
+                       direction = "down";
+                       worldY += speed;
+                       moving = true;
+                   }
+                   if (keyH.rightPressed) {
+                       direction = "right";
+                       worldX += speed;
+                       moving = true;
+                   }
 
-                }
-                if (keyH.leftPressed) {
-                    direction = "left";
-                    worldX -= speed;
-                    moving = true;
-                }
-                if (keyH.rightPressed) {
-                    direction = "right";
-                    worldX += speed;
-                    moving = true;
-                }
-            }
-            else if (collisionDirection.equals("down")) {
-                worldY -= speed;
-                if (keyH.upPressed) {
-                    direction = "up";
-                    worldY -= speed;
-                    moving = true;
-                }
-                if (keyH.leftPressed) {
-                    direction = "left";
-                    worldX -= speed;
-                    moving = true;
-                }
-                if (keyH.rightPressed) {
-                    direction = "right";
-                    worldX += speed;
-                    moving = true;
-                }
-            }
-            else if (collisionDirection.equals("left")) {
-                worldX += speed;
-                if (keyH.upPressed) {
-                    direction = "up";
-                    worldY -= speed;
-                    moving = true;
-                }
-                if (keyH.downPressed) {
-                    direction = "down";
-                    worldY += speed;
-                    moving = true;
-                }
-                if (keyH.rightPressed) {
-                    direction = "right";
-                    worldX += speed;
-                    moving = true;
-                }
+               }
+               else if (collisionDirection.equals("right")) {
+                   worldX -= speed;
+                   if (keyH.upPressed) {
+                       direction = "up";
+                       worldY -= speed;
+                       moving = true;
+                   }
+                   if (keyH.leftPressed) {
+                       direction = "left";
+                       worldX -= speed;
+                       moving = true;
+                   }
+                   if (keyH.downPressed) {
+                       direction = "down";
+                       worldY += speed;
+                       moving = true;
+                   }
+               }
 
-            }
-            else if (collisionDirection.equals("right")) {
-                worldX -= speed;
-                if (keyH.upPressed) {
-                    direction = "up";
-                    worldY -= speed;
-                    moving = true;
-                }
-                if (keyH.leftPressed) {
-                    direction = "left";
-                    worldX -= speed;
-                    moving = true;
-                }
-                if (keyH.downPressed) {
-                    direction = "down";
-                    worldY += speed;
-                    moving = true;
-                }
-            }
+           }
+       }
 
-        }
+
 
         if (moving) {
             spriteCounter++;
