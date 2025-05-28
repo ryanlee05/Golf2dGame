@@ -11,6 +11,7 @@ import Object.GolfBall;
 import Object.Clubs;
 import entity.Player;
 import tile.TileManager;
+import Object.GolfBag;
 
 /**
  * creates the gamepanel that will be used for the game
@@ -46,6 +47,8 @@ public class gamePanel extends JPanel implements Runnable {
 	Sound sound = new Sound();
 	
 	public UI ui = new UI(this);
+	
+	public GolfBag golfbag = new GolfBag(this);
 	
 
 	
@@ -126,7 +129,7 @@ public class gamePanel extends JPanel implements Runnable {
 		golfBall.update();
 		
 		club.update();
-	
+		
 		
 		
 	}
@@ -146,7 +149,7 @@ public class gamePanel extends JPanel implements Runnable {
 		ui.drawHoleText(g2);
 		
 		club.draw(g2);
-
+		golfbag.draw(g2);
 		g2.dispose();
 		
 	
