@@ -48,7 +48,8 @@ public class GolfBall {
 	public long startTime;
 
 	public boolean swingOnce;
-
+	//tracks how many times the ball has been hit
+	public int hitCount;
 	/**
 	 * GolfBall constructor. creates the image of the ball, sets its position within
 	 * the world, and sets variables such as friction, swing state, etc.
@@ -81,7 +82,7 @@ public class GolfBall {
 		this.club = "driver";
 
 		this.swingOnce = true;
-
+		hitCount = 0;
 	}
 
 	public void update() {
@@ -91,7 +92,7 @@ public class GolfBall {
 		if (keyH.hitPressed && playerReady && !hitInProgress) {
 
 			hitInProgress = true;
-
+			
 			keyH.hitPressed = false;
 
 			angle = 70;
@@ -131,6 +132,7 @@ public class GolfBall {
 			if (currTime - startTime >= delay && swingOnce) {
 				gp.playSoundEffect(2);
 				swingOnce = false;
+				hitCount++;
 				
 			}
 			

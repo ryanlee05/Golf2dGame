@@ -45,11 +45,18 @@ public class gamePanel extends JPanel implements Runnable {
 	
 	Sound sound = new Sound();
 	
+	public UI ui = new UI(this);
+	
 
 	
 	TileManager tileM = new TileManager(this);
 	
 	public CollisionChecker collisionCheck = new CollisionChecker(this);
+	
+	//GAME STATE
+	public int gameState;
+	public final int playState = 1;
+	public final int pauseState = 2;
 	
 	
 
@@ -136,7 +143,7 @@ public class gamePanel extends JPanel implements Runnable {
 		
 		golfBall.draw(g2);
 		
-		
+		ui.drawHoleText(g2);
 		
 		club.draw(g2);
 
