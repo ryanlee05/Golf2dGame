@@ -131,10 +131,11 @@ public class GolfBall {
 			if (currTime - startTime >= delay && swingOnce) {
 				gp.playSoundEffect(2);
 				swingOnce = false;
+				
 			}
 			
 			if(!swingOnce) {
-				swingState = 1;
+				swingState = 3;
 				if (velocityY >= 0.5) {
 					worldY -= velocityY;
 					velocityY *= friction;
