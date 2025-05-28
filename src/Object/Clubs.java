@@ -39,15 +39,30 @@ public class Clubs {
 	}
 
 	public void update() {
-		if (gp.golfBall.playerReady) {
+		if (gp.golfBall.playerReady && !gp.golfBall.hitInProgress) {
 			if (keyH.qPressed && !qPressedLastFrame) {
 				gp.playSoundEffect(4);
 				currentIndex = (currentIndex - 1 + clubImages.length) % clubImages.length;
+				
+				
 			}
 
 			if (keyH.ePressed && !ePressedLastFrame) {
 				gp.playSoundEffect(3);
 				currentIndex = (currentIndex + 1) % clubImages.length;
+			}
+			
+			if(currentIndex == 0) {
+				gp.golfBall.club = "driver";
+			}
+			else if(currentIndex == 1) {
+				gp.golfBall.club = "iron";
+			}
+			else if (currentIndex == 2) {
+				gp.golfBall.club = "wedge";
+			}
+			else {
+				gp.golfBall.club = "putter";
 			}
 
 			qPressedLastFrame = keyH.qPressed;

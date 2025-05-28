@@ -116,11 +116,11 @@ public class gamePanel extends JPanel implements Runnable {
 	public void update() {
 		player.update();
 		
-		
-		
 		golfBall.update();
 		
 		club.update();
+	
+		
 		
 	}
 
@@ -132,9 +132,11 @@ public class gamePanel extends JPanel implements Runnable {
 		
 		tileM.draw(g2);
 		
+		player.draw(g2);
+		
 		golfBall.draw(g2);
 		
-		player.draw(g2);
+		
 		
 		club.draw(g2);
 
