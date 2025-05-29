@@ -26,7 +26,8 @@ public class UI{
     public void drawHoleText(Graphics2D g2) {
         g2.setFont(pixelFont);
         g2.setColor(Color.WHITE);
-        g2.drawString("STROKES: " + gp.golfBall.hitCount, gp.screenWidth - 3*gp.tileSize + 30, 40);
+        g2.drawString("STROKES: " + gp.golfBall.hitCount, gp.tileSize/2 - 15, 35);
+        g2.drawString("HOLE: " + gp.holeCount, gp.tileSize/2 - 15, 65);
     }
     
     
