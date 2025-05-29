@@ -14,7 +14,7 @@ public class UI{
         this.gp = gp;
         try {
             InputStream is = getClass().getResourceAsStream("/fonts/Pixeled.ttf");
-            pixelFont = Font.createFont(Font.TRUETYPE_FONT, is).deriveFont(18f); 
+            pixelFont = Font.createFont(Font.TRUETYPE_FONT, is).deriveFont(20f); 
         } catch (Exception e) {
             e.printStackTrace();
             pixelFont = new Font("Monospaced", Font.BOLD, 16); 
