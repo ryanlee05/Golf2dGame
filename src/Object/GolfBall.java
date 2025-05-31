@@ -48,8 +48,9 @@ public class GolfBall {
 	public long startTime;
 
 	public boolean swingOnce;
-	//tracks how many times the ball has been hit
+	// tracks how many times the ball has been hit
 	public int hitCount;
+
 	/**
 	 * GolfBall constructor. creates the image of the ball, sets its position within
 	 * the world, and sets variables such as friction, swing state, etc.
@@ -92,31 +93,29 @@ public class GolfBall {
 		if (keyH.hitPressed && playerReady && !hitInProgress) {
 
 			hitInProgress = true;
-			
-			keyH.hitPressed = false;
 
-			angle = 70;
+			keyH.hitPressed = false;
 
 			// if driver is being used, set velocity to 65
 			if (club.equals("driver")) {
-				velocityX = (int) 65 * Math.cos(Math.toRadians(angle));
-				velocityY = (int) 65 * Math.sin(Math.toRadians(angle));
+				velocityX = (int) Math.abs(65 * Math.cos(Math.toRadians(angle)));
+				velocityY = (int) Math.abs(65 * Math.sin(Math.toRadians(angle)));
 			}
 
 			// if iron, set velocity to 50
 			else if (club.equals("iron")) {
-				velocityX = (int) 50 * Math.cos(Math.toRadians(angle));
-				velocityY = (int) 50 * Math.sin(Math.toRadians(angle));
+				velocityX = (int) Math.abs(50 * Math.cos(Math.toRadians(angle)));
+				velocityY = (int) Math.abs(50 * Math.sin(Math.toRadians(angle)));
 			}
 
 			else if (club.equals("wedge")) {
-				velocityX = (int) 30 * Math.cos(Math.toRadians(angle));
-				velocityY = (int) 30 * Math.sin(Math.toRadians(angle));
+				velocityX = (int) Math.abs(35 * Math.cos(Math.toRadians(angle)));
+				velocityY = (int) Math.abs(35 * Math.sin(Math.toRadians(angle)));
 			}
 
 			else if (club.equals("putter")) {
-				velocityX = (int) 15 * Math.cos(Math.toRadians(angle));
-				velocityY = (int) 15 * Math.sin(Math.toRadians(angle));
+				velocityX = (int) Math.abs(24 * Math.cos(Math.toRadians(angle)));
+				velocityY = (int) Math.abs(24 * Math.sin(Math.toRadians(angle)));
 			}
 
 			startTime = System.currentTimeMillis();
@@ -133,31 +132,96 @@ public class GolfBall {
 				gp.playSoundEffect(2);
 				swingOnce = false;
 				hitCount++;
-				
 			}
-			
-			if(!swingOnce) {
+
+			solidArea = new Rectangle();
+
+			if (!swingOnce) {
 				swingState = 3;
-				if (velocityY >= 0.5) {
-					worldY -= velocityY;
-					velocityY *= friction;
-				}
-				if (velocityX >= 0.5) {
-					worldX += velocityX;
-					velocityX *= friction;
-				}
 
+				if (angle >= 0 && angle <= 90) {
+					if (velocityY >= 0.5) {
+						worldY -= velocityY;
+						velocityY *= friction;
+					}
+					if (velocityX >= 0.5) {
+						worldX += velocityX;
+						velocityX *= friction;
+					}
+
+					else {
+
+						playerReady = false;
+						hitInProgress = false;
+						swingState = 0;
+						solidArea = new Rectangle(this.worldX, this.worldY, 64, 64);
+						swingOnce = true;
+
+					}
+				}
+				else if (angle >= 270) {
+					if (velocityY >= 0.5) {
+						worldY += velocityY;
+						velocityY *= friction;
+					}
+					if (velocityX >= 0.5) {
+						worldX += velocityX;
+						velocityX *= friction;
+					}
+
+					else {
+
+						playerReady = false;
+						hitInProgress = false;
+						swingState = 0;
+						solidArea = new Rectangle(this.worldX, this.worldY, 64, 64);
+						swingOnce = true;
+
+					}
+				}
+				else if (angle >= 90 && angle <= 180) {
+					if (velocityY >= 0.5) {
+						worldY -= velocityY;
+						velocityY *= friction;
+					}
+					if (velocityX >= 0.5) {
+						worldX -= velocityX;
+						velocityX *= friction;
+					}
+
+					else {
+
+						playerReady = false;
+						hitInProgress = false;
+						swingState = 0;
+						solidArea = new Rectangle(this.worldX, this.worldY, 64, 64);
+						swingOnce = true;
+
+					}
+				}
 				else {
+					if (velocityY >= 0.5) {
+						worldY += velocityY;
+						velocityY *= friction;
+					}
+					if (velocityX >= 0.5) {
+						worldX -= velocityX;
+						velocityX *= friction;
+					}
 
-					playerReady = false;
-					hitInProgress = false;
-					swingState = 0;
-					solidArea = new Rectangle(this.worldX, this.worldY, 64, 64);
-					swingOnce = true;
+					else {
 
+						playerReady = false;
+						hitInProgress = false;
+						swingState = 0;
+						solidArea = new Rectangle(this.worldX, this.worldY, 64, 64);
+						swingOnce = true;
+
+					}
 				}
+
 			}
-			
+
 		} else {
 			keyH.hitPressed = false;
 		}
@@ -175,6 +239,10 @@ public class GolfBall {
 				&& worldY - gp.tileSize < gp.player.worldY + gp.player.screenY) {
 			g2.drawImage(image, screenX, screenY, gp.tileSize / 2, gp.tileSize / 2, null);
 		}
+	}
+
+	public void setAngle(double degree) {
+		angle = degree;
 	}
 
 	// row 42 col 20

@@ -50,6 +50,9 @@ public class gamePanel extends JPanel implements Runnable {
 	
 	public GolfBag golfbag = new GolfBag(this);
 	
+	public MouseListen mouseL = new MouseListen(this);
+	
+	
 
 	
 	TileManager tileM = new TileManager(this);
@@ -73,6 +76,7 @@ public class gamePanel extends JPanel implements Runnable {
 		this.setDoubleBuffered(true);
 		this.addKeyListener(keyH);
 		this.setFocusable(true);
+		this.addMouseListener(mouseL);
 
 	}
 
