@@ -1,2 +1,4 @@
-# Golf2dGame
- 2d Golf game personal project
+# 2D Golf Game
+ Retro-inspired golf game built from Java, no frameworks.
+
+ Showcase of OOP design, logic, and interest in the sport!
