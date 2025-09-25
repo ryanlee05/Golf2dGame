@@ -4,7 +4,7 @@ By: **Ryan Lee** and **Sage Lin**
 
 This App: **Allows you to play golf from your computer! Using Java with no frameworks, come play 18 holes and explore each unique and different hole!**
 
-##Features
+## Features
 - [ ] Implementing a 2d array map that converts numbers into background tiles
 - [ ] Created collision detection to avoid water and trees
 - [ ] Utilized ball physics for where to hit ball and what club to use
